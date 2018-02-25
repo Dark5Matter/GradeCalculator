@@ -111,12 +111,40 @@ def findMax (list):
             max = list[i]   # set max to the item at i
  
     return max
+
+def input_grade(prompt): # prompt is the prompt you want to show to the user
+
+    # returns the grade in uppercase or "Error" if an incorrect grade is entered. Modify the grades list as desired
+
+    grades = ["A", "B", "C", "D", "E", "F"] # valid grades
+
+    uppercase = input (prompt).upper() # get the input and make it uppercase
+
+    if uppercase not in grades: # if the entered grade is invalid
+
+        return "Error"
+
+    else: # if the entered grade is valid
+
+        return uppercase
  
 def countOccurrence (li):
  
     total = 0
- 
-    search = input ("Enter the grade you're looking for ") #find out what grade the user wants to find
+
+    _desired_grade = "" # temporary variable to loop until the user provides a valid input
+
+    _grade_found = False # temporary variable to loop until the user provides a valid input
+
+    while _grade_found == False: # exit when _grade_found is True and _desired_grade is an actual grade
+
+        _desired_grade = input_grade("Enter the grade you're looking for ") # user input
+
+        if (_desired_grade != "Error"): # valid input, no error
+
+            _grade_found = True # set to True and exit the loop
+            
+    search = _desired_grade # the grade the user wants to find
  
     for i in range(0,len(li)):
  
