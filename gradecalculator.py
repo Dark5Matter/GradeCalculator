@@ -156,37 +156,39 @@ def countOccurrence (li):
  
     return total
 #Main program
+
+while True:
  
-Name =[]
+    Name =[]
  
-examMark = []
+    examMark = []
  
-courseMark = []
+    courseMark = []
  
-percentageList = []
+    percentageList = []
  
-gradeList = []
+    gradeList = []
  
-name, examMark, courseMark = importData("/home/bdavidson106/Assessment/AssessmentNames.csv")
+    name, examMark, courseMark = importData("/home/bdavidson106/Assessment/AssessmentNames.csv")
  
-percentageList = calcPercentage(courseMark, examMark)
+    percentageList = calcPercentage(courseMark, examMark)
  
-for index in range(0, 11):
+    for index in range(0, 11):
  
-    grade = findGrade(percentageList[index])
+        grade = findGrade(percentageList[index])
  
-    gradeList.append(grade)
+        gradeList.append(grade)
  
-    display(percentageList[index], gradeList[index], name[index])
+        display(percentageList[index], gradeList[index], name[index])
  
-writeCSVFile("/home/bdavidson106/Assessment/AssessmentNames.csv", name, courseMark, examMark ,percentageList, gradeList)
+    writeCSVFile("/home/bdavidson106/Assessment/AssessmentNames.csv", name, courseMark, examMark ,percentageList, gradeList)
  
-maxCourse = findMax (courseMark)
+    maxCourse = findMax (courseMark)
  
-maxExam = findMax (examMark)
+    maxExam = findMax (examMark)
  
-maxPercent = findMax (percentageList)
+    maxPercent = findMax (percentageList)
  
-print("Highest coursework mark was ", maxCourse,"\n Largest exam mark was ", maxExam, "\n Largest overall percentage was ", maxPercent)
+    print("Highest coursework mark was ", maxCourse,"\n Largest exam mark was ", maxExam, "\n Largest overall percentage was ", maxPercent)
  
-ocurrences = countOccurrence (gradeList)
+    ocurrences = countOccurrence (gradeList)
